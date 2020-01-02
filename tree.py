@@ -7,6 +7,12 @@ def build_bst(my_list):
     print("Middle index: {}".format(middle_idx))
     print("Middle value: {}".format(middle_value))
 
+    tree_node = {"data": middle_value}
+    tree_node["left_child"] = build_bst(my_list[:middle_idx])
+    tree_node["right_child"] = build_bst(my_list[middle_idx + 1:])
+
+    return tree_node
+
 sorted_list = [12, 13, 14, 15, 16]
 binary_search_tree = build_bst(sorted_list)
 print(binary_search_tree)
